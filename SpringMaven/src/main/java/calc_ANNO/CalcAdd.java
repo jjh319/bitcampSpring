@@ -5,8 +5,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-@Component
-
+//@Component
 public class CalcAdd implements Calc {
 
 

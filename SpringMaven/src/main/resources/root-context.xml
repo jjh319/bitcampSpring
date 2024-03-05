@@ -39,6 +39,8 @@
     <!-- calc_ANNO -->
     <context:component-scan base-package="sungJuk_ANNO" />
 
+    <context:component-scan base-package="spring.conf" />
+
     <!-- calc -->
     <bean id="calcAdd" class="calc.CalcAdd" >
         <constructor-arg value="25" />
