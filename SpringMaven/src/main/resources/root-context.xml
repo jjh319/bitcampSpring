@@ -2,14 +2,49 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
-            http://www.springframework.org/schema/context">
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 
-    <bean id="messageBean" class="sample02.MessageBeanKo"></bean>
+    <bean id="messageBean" class="sample02.MessageBeanKo"/>
 
     <!-- sample05 -->
-    <bean id="sungJukImpl" class="sample05.SungJukImpl"></bean>
+<!--    <bean id="sungJukImpl" class="sample05.SungJukImpl"/>-->
 
+
+    <!-- Chapter02_XML -->
+    <bean id="messageBeanImpl" class="Chapter02_XML.MessageBeanImpl">
+
+        <constructor-arg>
+            <value>사과</value>
+        </constructor-arg>
+
+        <property name="cost">
+            <value>5000</value>
+        </property>
+
+        <property name="qty">
+            <value>3</value>
+        </property>
+
+    </bean>
+
+    <!-- Chapter02_ANNO -->
+    <context:component-scan base-package="Chapter02_ANNO"/>
+
+    <!-- calc_ANNO -->
+    <context:component-scan base-package="calc_ANNO" />
+
+    <!-- calc -->
+    <bean id="calcAdd" class="calc.CalcAdd" >
+        <constructor-arg value="25" />
+        <constructor-arg value="36" />
+    </bean>
+
+    <bean id="calcMul" class="calc.CalcMul">
+        <property name="x" value="25" />
+        <property name="y" value="36" />
+    </bean>
 
 </beans>
