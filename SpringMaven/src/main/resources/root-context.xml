@@ -8,5 +8,8 @@
 
     <bean id="messageBean" class="sample02.MessageBeanKo"></bean>
 
+    <!-- sample05 -->
+    <bean id="sungJukImpl" class="sample05.SungJukImpl"></bean>
+
 
 </beans>
