@@ -20,19 +20,21 @@
     <aop:config>
 
         <aop:pointcut id="beforeMethod" expression="execution(public void sample01.MessageBeanImpl.*Before())" />
+
+        <aop:pointcut id="afterMethod" expression="execution(public void sample01.MessageBeanImpl.*After())"/>
+
+
         <aop:aspect ref="loggingAdvice">
             <aop:before method="beforeTrace" pointcut-ref="beforeMethod"/>
         </aop:aspect>
 
-
-    </aop:config>
-
-    <aop:config>
-        <aop:pointcut id="afterMethod" expression="execution(public void sample01.MessageBeanImpl.*After())"/>
         <aop:aspect ref="loggingAdvice">
             <aop:after method="afterTrace" pointcut-ref="afterMethod"/>
         </aop:aspect>
+
+
     </aop:config>
+
 
 
 
