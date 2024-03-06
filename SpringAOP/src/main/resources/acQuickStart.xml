@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="helloSpring" class="sample01.HelloSpring"></bean>
+
+    <bean id="messageBeanImpl" class="sample01.MessageBeanImpl">
+        <property name="str" value="Have a nice day!!"></property>
+    </bean>
+
+    <bean id="loggingAdvice" class="sample01.LoggingAdvice"></bean>
+
+    <!-- AOP -->
+    <aop:config>
+
+        <aop:pointcut id="beforeMethod" expression="execution(public void sample01.MessageBeanImpl.*Before())" />
+        <aop:aspect ref="loggingAdvice">
+            <aop:before method="beforeTrace" pointcut-ref="beforeMethod"/>
+        </aop:aspect>
+
+
+    </aop:config>
+
+    <aop:config>
+        <aop:pointcut id="afterMethod" expression="execution(public void sample01.MessageBeanImpl.*After())"/>
+        <aop:aspect ref="loggingAdvice">
+            <aop:after method="afterTrace" pointcut-ref="afterMethod"/>
+        </aop:aspect>
+    </aop:config>
+
+
+
+</beans>
