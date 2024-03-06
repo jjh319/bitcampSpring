@@ -66,4 +66,21 @@
     </bean>
 
 
+    <bean id="homeMain" class="homework.HomeMain"></bean>
+
+    <bean id="sungJukInput" class="homework.SungJukInput" scope="prototype">
+        <property name="sungJukDTO2" ref="sungJukDTO2"></property>
+        <property name="list" ref="list"></property>
+    </bean>
+
+    <bean id="sungJukOutput" class="homework.SungJukOutput">
+        <property name="list" ref="list"></property>
+    </bean>
+
+    <bean id="sungJukUpdate" class="homework.SungJukUpdate"></bean>
+
+    <bean id="sungJukDTO2" class="homework.SungJukDTO2" scope="prototype"></bean>
+
+    <bean id="list" class="java.util.ArrayList"></bean>
+
 </beans>
