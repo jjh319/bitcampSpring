@@ -32,7 +32,9 @@ public class HomeMain {
                 sungJuk = (SungJuk) applicationContext.getBean("sungJukOutput");
             } else if(num == 3) {
                 sungJuk = (SungJuk) applicationContext.getBean("sungJukUpdate");
-            }
+            } else if(num == 4) {
+                sungJuk = (SungJuk) applicationContext.getBean("sungJukDelete");
+            } // if-else if
 
             sungJuk.execute();
 

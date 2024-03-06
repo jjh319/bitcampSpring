@@ -77,7 +77,13 @@
         <property name="list" ref="list"></property>
     </bean>
 
-    <bean id="sungJukUpdate" class="homework.SungJukUpdate"></bean>
+    <bean id="sungJukUpdate" class="homework.SungJukUpdate">
+        <property name="list" ref="list"></property>
+    </bean>
+
+    <bean id="sungJukDelete" class="homework.SungJukDelete">
+        <property name="list" ref="list"></property>
+    </bean>
 
     <bean id="sungJukDTO2" class="homework.SungJukDTO2" scope="prototype"></bean>
 
