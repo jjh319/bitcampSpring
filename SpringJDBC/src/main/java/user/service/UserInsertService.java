@@ -6,32 +6,31 @@ import user.dao.UserDAO;
 
 import java.util.Scanner;
 
+@Setter
 public class UserInsertService implements UserService{
 
-    @Setter
     private UserDTO userDTO;
-
-    @Setter
     private UserDAO userDAO;
 
     @Override
     public void execute() {
         System.out.println();
-        Scanner sc = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
 
-        System.out.print("이름 입력 : ");
-        String name = sc.next();
-
-        System.out.print("아이디 입력 : ");
-        String id = sc.next();
-
-        System.out.print("비밀번호 입력 : ");
-        String pwd = sc.next();
+        System.out.println("이름 입력 : ");
+        String name = scan.next();
+        System.out.println("아이디 입력 : ");
+        String id = scan.next();
+        System.out.println("비밀번호 입력 : ");
+        String pwd = scan.next();
 
         userDTO.setName(name);
         userDTO.setId(id);
         userDTO.setPwd(pwd);
 
+        userDAO.write(userDTO);
+
+        System.out.println(name + " 님의 정보가 저장되었습니다.");
     } // execute
 
-} // execute
+} // end class

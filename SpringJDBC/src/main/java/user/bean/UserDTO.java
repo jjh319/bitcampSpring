@@ -3,12 +3,15 @@ package user.bean;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
 @Setter
+@Getter
 public class UserDTO {
 
     private String name;
     private String id;
     private String pwd;
 
-} // end class
+    public String toString(){
+        return name + " " + id + " " + pwd;
+    }
+}

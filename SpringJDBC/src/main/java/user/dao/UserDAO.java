@@ -1,10 +1,12 @@
 package user.dao;
 
-
 import user.bean.UserDTO;
 
-public interface UserDAO {
+import java.util.List;
 
+public interface UserDAO {
     public void write(UserDTO userDTO);
 
-} // end class
+
+    public List<UserDTO> getUserList();
+}
