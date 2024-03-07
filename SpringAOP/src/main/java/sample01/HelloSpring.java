@@ -29,6 +29,15 @@ public class HelloSpring {
 
         messageBean.display();
 
+        // around
+        messageBean.showPrint();
+        System.out.println();
+
+        messageBean.viewPrint();
+        System.out.println();
+
+        messageBean.display();
+
     } // main
 
 } // end class

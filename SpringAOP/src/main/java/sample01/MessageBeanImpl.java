@@ -33,4 +33,15 @@ public class MessageBeanImpl implements MessageBean{
         System.out.println("viewPrintAfter 메세지 : " + str);
     } // viewPrintAfter
 
+    @Override
+    public void showPrint() {
+        System.out.println("showPrint 메시지 : " + str);
+    } // showPrint
+
+    @Override
+    public void viewPrint() {
+        System.out.println("viewPrint 메시지 : " + str);
+
+    } // viewPrint
+
 } // end class

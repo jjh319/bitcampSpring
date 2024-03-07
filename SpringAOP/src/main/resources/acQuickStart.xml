@@ -23,13 +23,13 @@
 
         <aop:pointcut id="afterMethod" expression="execution(public void sample01.MessageBeanImpl.*After())"/>
 
+        <aop:pointcut id="aroundMethod" expression="execution(public void sample01.MessageBeanImpl.*Print())"/>
+
 
         <aop:aspect ref="loggingAdvice">
             <aop:before method="beforeTrace" pointcut-ref="beforeMethod"/>
-        </aop:aspect>
-
-        <aop:aspect ref="loggingAdvice">
             <aop:after method="afterTrace" pointcut-ref="afterMethod"/>
+            <aop:around method="trace" pointcut-ref="aroundMethod"/>
         </aop:aspect>
 
 
