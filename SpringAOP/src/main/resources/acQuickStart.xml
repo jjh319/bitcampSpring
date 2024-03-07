@@ -8,32 +8,33 @@
            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <bean id="helloSpring" class="sample01.HelloSpring"></bean>
+    <aop:aspectj-autoproxy />
 
-    <bean id="messageBeanImpl" class="sample01.MessageBeanImpl">
-        <property name="str" value="Have a nice day!!"></property>
-    </bean>
+    <context:component-scan base-package="sample01_ANNO"></context:component-scan>
+<!--    <bean id="messageBeanImpl" class="sample01.MessageBeanImpl">-->
+<!--        <property name="str" value="Have a nice day!!"></property>-->
+<!--    </bean>-->
 
-    <bean id="loggingAdvice" class="sample01.LoggingAdvice"></bean>
+<!--    <bean id="loggingAdvice" class="sample01.LoggingAdvice"></bean>-->
 
     <!-- AOP -->
-    <aop:config>
+<!--    <aop:config>-->
 
-        <aop:pointcut id="beforeMethod" expression="execution(public void sample01.MessageBeanImpl.*Before())" />
+<!--        <aop:pointcut id="beforeMethod" expression="execution(public void sample01.MessageBeanImpl.*Before())" />-->
 
-        <aop:pointcut id="afterMethod" expression="execution(public void sample01.MessageBeanImpl.*After())"/>
+<!--        <aop:pointcut id="afterMethod" expression="execution(public void sample01.MessageBeanImpl.*After())"/>-->
 
-        <aop:pointcut id="aroundMethod" expression="execution(public void sample01.MessageBeanImpl.*Print())"/>
-
-
-        <aop:aspect ref="loggingAdvice">
-            <aop:before method="beforeTrace" pointcut-ref="beforeMethod"/>
-            <aop:after method="afterTrace" pointcut-ref="afterMethod"/>
-            <aop:around method="trace" pointcut-ref="aroundMethod"/>
-        </aop:aspect>
+<!--        <aop:pointcut id="aroundMethod" expression="execution(public void sample01.MessageBeanImpl.*Print())"/>-->
 
 
-    </aop:config>
+<!--        <aop:aspect ref="loggingAdvice">-->
+<!--            <aop:before method="beforeTrace" pointcut-ref="beforeMethod"/>-->
+<!--            <aop:after method="afterTrace" pointcut-ref="afterMethod"/>-->
+<!--            <aop:around method="trace" pointcut-ref="aroundMethod"/>-->
+<!--        </aop:aspect>-->
+
+
+<!--    </aop:config>-->
 
 
 
