@@ -10,6 +10,8 @@
 
     <aop:aspectj-autoproxy />
 
+    <context:component-scan base-package="spring.conf" />
+
     <context:component-scan base-package="sample01_ANNO"></context:component-scan>
 <!--    <bean id="messageBeanImpl" class="sample01.MessageBeanImpl">-->
 <!--        <property name="str" value="Have a nice day!!"></property>-->
