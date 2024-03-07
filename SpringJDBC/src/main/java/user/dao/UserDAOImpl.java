@@ -35,7 +35,7 @@ public class UserDAOImpl extends JdbcDaoSupport implements UserDAO{
     @Override
     public void write(UserDTO userDTO) {
 
-        String sql="insert into usertable values(?,?,?)";
+        String sql = "insert into usertable values(?,?,?)";
         getJdbcTemplate().update(sql,userDTO.getName(),userDTO.getId(),userDTO.getPwd());
 
     } // write
@@ -43,8 +43,24 @@ public class UserDAOImpl extends JdbcDaoSupport implements UserDAO{
     @Override
     public List<UserDTO> getUserList() {
 
-        String sql="select * from usertable";
+        String sql = "select * from usertable";
         return getJdbcTemplate().query(sql,new BeanPropertyRowMapper<UserDTO>(UserDTO.class));
     } // getUserList
+
+    @Override
+    public void updateUser(UserDTO userDTO) {
+
+        String sql = "update usertable set name=?, pwd=? where id=?";
+        getJdbcTemplate().update(sql, userDTO.getName(), userDTO.getPwd(), userDTO.getId());
+
+    } // updateUser
+
+    @Override
+    public void deleteUser(UserDTO userDTO) {
+        String sql = "delete FROM usertable WHERE id=?";
+
+        getJdbcTemplate().update(sql, userDTO.getId());
+
+    } // deleteUser
 
 } // end class

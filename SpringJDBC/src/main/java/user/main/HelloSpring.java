@@ -24,15 +24,15 @@ public class HelloSpring {
             num = scan.nextInt();
 
             if(num==1) {
-                userService=(UserService) applicationContext.getBean("userInsertService");
+                userService = (UserService) applicationContext.getBean("userInsertService");
             }else if(num==2) {
-                userService=(UserService) applicationContext.getBean("userSelectService");
+                userService = (UserService) applicationContext.getBean("userSelectService");
             }
-//            else if(num==3) {
-//                userService=(UserService) applicationContext.getBean("userUpdateService");
-//            }else if(num==4) {
-//                userService=(UserService) applicationContext.getBean("userDeleteService");
-//            }
+            else if(num==3) {
+                userService = (UserService) applicationContext.getBean("userUpdateService");
+            }else if(num==4) {
+                userService = (UserService) applicationContext.getBean("userDeleteService");
+            } // if-else if
 
             if(num==5) break;
 
@@ -44,7 +44,7 @@ public class HelloSpring {
 
     public static void main(String[] args) {
 
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring/applicationContext.xml");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("root-context.xml");
         HelloSpring helloSpring = applicationContext.getBean("helloSpring",HelloSpring.class);
         helloSpring.menu(applicationContext);
 

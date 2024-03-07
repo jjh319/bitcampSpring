@@ -31,14 +31,23 @@
 <!--        <property name="jdbcTemplate" ref="jdbcTemplate"/>-->
         <property name="dataSource" ref="dataSource" />
     </bean>
+
     <bean id="userInsertService" class="user.service.UserInsertService" scope="prototype">
         <property name="userDTO" ref="userDTO"/>
         <property name="userDAO" ref="userDAOImpl"/>
     </bean>
+
     <bean id="userSelectService" class="user.service.UserSelectService">
         <property name="userDAO" ref="userDAOImpl"/>
     </bean>
 
+    <bean id="userUpdateService" class="user.service.UserUpdateService">
+        <property name="userDAO" ref="userDAOImpl"/>
+    </bean>
+
+    <bean id="userDeleteService" class="user.service.UserDeleteService">
+        <property name="userDAO" ref="userDAOImpl" />
+    </bean>
 
 
 
