@@ -1,15 +1,20 @@
 package user.service;
 
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import user.bean.UserDTO;
 import user.dao.UserDAO;
 
 import java.util.Scanner;
 
-@Setter
+//@Setter
+@Service
 public class UserInsertService implements UserService{
 
+    @Autowired
     private UserDTO userDTO;
+    @Autowired
     private UserDAO userDAO;
 
     @Override

@@ -15,59 +15,52 @@
 
     <!-- Connection Pool & DataSource -->
     <!-- connection pool 제공               classpath 기본위치 src/main/resources  -->
-    <context:property-placeholder location="classpath:application.properties"/>
-    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
-        <!--          p:driverClassName="com.mysql.cj.jdbc.Driver"-->
-        <!--          p:url="jdbc:mysql://localhost:3306/mydb?serverTimezone=Asia/Seoul"-->
-        <!--          p:username="root"-->
-        <!--          p:password="1234"-->
-        <!--    > -->
-        <property name="driverClassName" value="${jdbc.driver}"/>
-        <property name="url" value="${jdbc.url}"/>
-        <property name="username" value="${jdbc.username}"/>
-        <property name="password" value="${jdbc.password}"/>
-    </bean>
-
-    <!-- SqlSessionFactory -->
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource" />
-        <property name="configLocation" value="classpath:mybatis-config.xml" />
-        <property name="mapperLocations" value="classpath:mapper/userMapper.xml" />
-    </bean>
-
-    <!-- SqlSession -->
-    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
-        <constructor-arg ref="sqlSessionFactory" />
-    </bean>
-
-    <!-- Transaction -->
-    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <constructor-arg ref="dataSource" />
-    </bean>
+<!--    <context:property-placeholder location="classpath:application.properties"/>-->
+<!--    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">-->
+<!--        &lt;!&ndash;          p:driverClassName="com.mysql.cj.jdbc.Driver"&ndash;&gt;-->
+<!--        &lt;!&ndash;          p:url="jdbc:mysql://localhost:3306/mydb?serverTimezone=Asia/Seoul"&ndash;&gt;-->
+<!--        &lt;!&ndash;          p:username="root"&ndash;&gt;-->
+<!--        &lt;!&ndash;          p:password="1234"&ndash;&gt;-->
+<!--        &lt;!&ndash;    > &ndash;&gt;-->
+<!--        <property name="driverClassName" value="${jdbc.driver}"/>-->
+<!--        <property name="url" value="${jdbc.url}"/>-->
+<!--        <property name="username" value="${jdbc.username}"/>-->
+<!--        <property name="password" value="${jdbc.password}"/>-->
+<!--    </bean>-->
 
 
-    <bean id="helloSpring" class="user.main.HelloSpring"/>
+    <context:component-scan base-package="spring.conf" />
 
-    <bean id="userDTO" class="user.bean.UserDTO" scope="prototype"/>
-    <bean id="userDAOMybatis" class="user.dao.UserDAOMybatis">
-        <property name="sqlSession" ref="sqlSession" />
-    </bean>
+    <tx:annotation-driven transaction-manager="transactionManager" />
 
-    <bean id="userInsertService" class="user.service.UserInsertService" scope="prototype">
-        <property name="userDTO" ref="userDTO"/>
-        <property name="userDAO" ref="userDAOMybatis"/>
-    </bean>
+    <context:component-scan base-package="user.bean" />
+    <context:component-scan base-package="user.dao" />
+    <context:component-scan base-package="user.main" />
+    <context:component-scan base-package="user.service" />
 
-    <bean id="userSelectService" class="user.service.UserSelectService">
-        <property name="userDAO" ref="userDAOMybatis"/>
-    </bean>
 
-    <bean id="userUpdateService" class="user.service.UserUpdateService">
-        <property name="userDAO" ref="userDAOMybatis"/>
-    </bean>
+<!--    <bean id="helloSpring" class="user.main.HelloSpring"/>-->
 
-    <bean id="userDeleteService" class="user.service.UserDeleteService">
-        <property name="userDAO" ref="userDAOMybatis" />
-    </bean>
+<!--    <bean id="userDTO" class="user.bean.UserDTO" scope="prototype"/>-->
+<!--    <bean id="userDAOMybatis" class="user.dao.UserDAOMybatis">-->
+<!--        <property name="sqlSession" ref="sqlSession" />-->
+<!--    </bean>-->
+
+<!--    <bean id="userInsertService" class="user.service.UserInsertService" scope="prototype">-->
+<!--        <property name="userDTO" ref="userDTO"/>-->
+<!--        <property name="userDAO" ref="userDAOMybatis"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="userSelectService" class="user.service.UserSelectService">-->
+<!--        <property name="userDAO" ref="userDAOMybatis"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="userUpdateService" class="user.service.UserUpdateService">-->
+<!--        <property name="userDAO" ref="userDAOMybatis"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="userDeleteService" class="user.service.UserDeleteService">-->
+<!--        <property name="userDAO" ref="userDAOMybatis" />-->
+<!--    </bean>-->
 
 </beans>

@@ -2,10 +2,12 @@ package user.main;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 import user.service.UserService;
 
 import java.util.Scanner;
 
+@Component
 public class HelloSpring {
 
     public void menu(ApplicationContext applicationContext){

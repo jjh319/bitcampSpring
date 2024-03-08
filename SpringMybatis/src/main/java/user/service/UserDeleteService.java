@@ -1,15 +1,19 @@
 package user.service;
 
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import user.bean.UserDTO;
 import user.dao.UserDAO;
 
 import java.util.List;
 import java.util.Scanner;
 
-@Setter
+//@Setter
+@Service
 public class UserDeleteService implements UserService{
 
+    @Autowired
     private UserDAO userDAO;
 
     @Override
