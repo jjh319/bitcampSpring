@@ -31,7 +31,7 @@
 
     <context:component-scan base-package="spring.conf" />
 
-    <tx:annotation-driven transaction-manager="transactionManager" />
+<!--    <tx:annotation-driven transaction-manager="transactionManager" />-->
 
     <context:component-scan base-package="user.bean" />
     <context:component-scan base-package="user.dao" />
